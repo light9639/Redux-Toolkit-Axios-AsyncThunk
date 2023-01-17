@@ -19,7 +19,7 @@ npm create vite@latest
 yarn create vite
 ```
 - 터미널에서 실행 후 프로젝트 이름 만든 후 React 선택, Typescirpt 선택하면 생성 완료.
-## 🚝 Redux-Toolkit, Axios 설치
+## 🛩️ Redux-Toolkit, Axios 설치
 - Redux-Toolkit 설치 명령어
 ```bash
 npm install redux react-redux @reduxjs/toolkit
