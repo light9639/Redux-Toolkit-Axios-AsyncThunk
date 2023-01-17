@@ -34,7 +34,24 @@ npm install axios
 yarn add axios
 ```
 
-## ✒️ App.tsx, userSlice.ts, store.ts, useTypedSelector.ts, TypeBox.ts 수정 및작성
+## ✒️ main.tsx, App.tsx, userSlice.ts, store.ts, useTypedSelector.ts, TypeBox.ts 수정 및작성
+### :zap: main.tsx
+- `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 import 한 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
+```bash
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+)
+```
 ### :zap: App.tsx
 - redux 함수를 사용하고 싶으면 useSelector, useDispatch를 import 한 뒤에 사용하면 된다.
 - 그러나 위의 2 함수는 type 적용이 안 되어 있기 때문에 useTypedSelector.ts의 useAppDispatch, useAppSelector를 가져와서 사용하는 것이 더 좋다.
