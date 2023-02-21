@@ -36,7 +36,7 @@ yarn add axios
 
 ## ✒️ main.tsx, App.tsx, userSlice.ts, store.ts, useTypedSelector.ts, TypeBox.ts 수정 및작성
 ### :zap: main.tsx
-- `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 import 한 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
+- `react-redux`에서 `Provider` 함수 가져온 후 `store.ts` 파일을 `import` 한 후 `<Provider store={store}></Provider>`으로 `<App />`을 둘러싸면 `Redux-Toolkit` 사용준비 완료.
 ```js
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -53,8 +53,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 )
 ```
 ### :zap: App.tsx
-- redux 함수를 사용하고 싶으면 useSelector, useDispatch를 import 한 뒤에 사용하면 된다.
-- 그러나 위의 2 함수는 type 적용이 안 되어 있기 때문에 useTypedSelector.ts의 useAppDispatch, useAppSelector를 가져와서 사용하는 것이 더 좋다.
+- `redux` 함수를 사용하고 싶으면 `useSelector`, `useDispatch`를 `import` 한 뒤에 사용하면 된다.
+- 그러나 위의 2가지 함수들은 `type` 적용이 안 되어 있기 때문에 `useTypedSelector.ts`의 `useAppDispatch`, `useAppSelector`를 가져와서 사용하는 것이 더 좋다.
 ```js
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUser } from "./redux/userSlice";
@@ -85,7 +85,7 @@ export default function App(): JSX.Element {
 ```
 
 ### :zap: userSlice.ts
-- Redux-toolkit의 내장 기능인 createAsyncThunk를 생성 후 extraReducers 작성하게 되면 axios를 통한 자료 전송이 가능해진다.
+- `Redux-toolkit`의 내장 기능인 `createAsyncThunk`를 생성 후 `extraReducers` 작성하게 되면 `axios`를 통한 자료 전송이 가능해진다.
 ```js
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -146,7 +146,7 @@ export default usersSlice.reducer;
 ```
 
 ### :zap: store.ts
-- configureStore안에 userSlice의 reducer를 가져온 후 export 함으로써 함수를 사용 가능하게 함.
+- `configureStore`안에 `userSlice`의 `reducer`를 가져온 후 `export` 함으로써 함수를 사용 가능하게 함.
 ```js
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from 'react-redux';
@@ -160,7 +160,7 @@ export const store = configureStore({
 ```
 
 ### :zap: useTypedSelector.ts
-- useDispatch, useSelector의 타입은 번번히 지정하기보다 useAppDispatch, useAppSelector를 저장하고 import 함으로써 type 지정의 수고를 덜 수 있다.
+- `useDispatch`, `useSelector`의 타입은 번번히 지정하기보다 `useAppDispatch`, `useAppSelector`를 저장하고 `import` 함으로써 `type` 지정의 수고를 덜 수 있다.
 ```js
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
@@ -171,7 +171,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```
 
 ### :zap: TypeBox.ts
-- axios로 가져올 데이터의 타입 지정.
+- `axios`로 가져올 데이터의 타입 지정.
 ```js
 export type CommonType = {
     index: number;
